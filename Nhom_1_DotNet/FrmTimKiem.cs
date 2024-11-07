@@ -1,13 +1,10 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Nhom_1_DotNet
 {
@@ -98,6 +95,32 @@ namespace Nhom_1_DotNet
                 filters.Add($"NAMHOC = '{namhoc}'");
             }
 
+            // Check if TienDo has a selected value
+            if (!string.IsNullOrEmpty(cboTienDo.Text))
+            {
+                if (cboTienDo.Text == "Hoàn thành")
+                {
+                    filters.Add("MATRANGTHAI = 'TT03'");
+                }
+                else if (cboTienDo.Text == "Chưa hoàn thành")
+                {
+                    filters.Add("MATRANGTHAI = 'TT02'");
+                }
+            }
+
+            // Check if GiaiThuong has a selected value
+            if (!string.IsNullOrEmpty(cboGiaiThuong.Text))
+            {
+                if (cboGiaiThuong.Text == "Đạt giải")
+                {
+                    filters.Add("MAGIAITHUONG IS NOT NULL");
+                }
+                else if (cboGiaiThuong.Text == "Không đạt giải")
+                {
+                    filters.Add("MAGIAITHUONG IS NULL");
+                }
+            }
+
             // Combine the filters with AND
             string filterExpression = string.Join(" AND ", filters);
 
@@ -126,7 +149,6 @@ namespace Nhom_1_DotNet
                 // If no filters are applied, show all records
                 dataGridView1.DataSource = table;
             }
-
         }
 
         private void lblGV_Click(object sender, EventArgs e)
@@ -181,6 +203,8 @@ namespace Nhom_1_DotNet
             cboLinhVuc.SelectedIndex = -1;
             cboKhoa.SelectedIndex = -1;
             cboMaGV.SelectedIndex = -1;
+            cboTienDo.SelectedIndex = -1;
+            cboGiaiThuong.SelectedIndex = -1;
             txtNAMHOC.Clear();
         }
 
@@ -204,6 +228,39 @@ namespace Nhom_1_DotNet
         private void cboKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboTienDo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboLinhVuc_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnXuatBaoCao_Click(object sender, EventArgs e)
+        {
+            //DataTable dataTable = ((DataTable)dataGridView1.DataSource).Copy();
+
+            //// Tạo mới ReportDocument
+            //ReportDocument reportDocument = new ReportDocument();
+            //reportDocument.Load("DeTaiNCKHReport.rpt");
+
+            //// Set dữ liệu cho báo cáo
+            //reportDocument.SetDataSource(dataTable);
+
+            //// Tạo form chứa CrystalReportViewer
+            //ReportForm reportForm = new ReportForm();
+            //reportForm.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            //reportForm.crystalReportViewer1.ReportSource = reportDocument;
+            //reportForm.ShowDialog();
         }
     }
 }
