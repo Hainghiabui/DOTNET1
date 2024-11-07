@@ -29,4 +29,3 @@ E:\repo\Im-KVA\Nhom_1_DotNet\Nhom_1_DotNet\obj\Debug\Nhom_1_DotNet.FrmTimKiem.re
 E:\repo\Im-KVA\Nhom_1_DotNet\Nhom_1_DotNet\obj\Debug\Nhom_1_DotNet.FrmThongtin.resources
 E:\repo\Im-KVA\Nhom_1_DotNet\Nhom_1_DotNet\obj\Debug\Nhom_1_DotNet.FrmDoiMatKhau.resources
 E:\repo\Im-KVA\Nhom_1_DotNet\Nhom_1_DotNet\obj\Debug\Nhom_1_DotNet.FrmCapNhat.resources
-E:\repo\Im-KVA\Nhom_1_DotNet\Nhom_1_DotNet\obj\Debug\Nhom_1_DotNet.ReportForm.resources
